@@ -3,4 +3,6 @@ const h = (type, props, ...children) => {
   return {type, props: props || {}, children};
 };
 
-export {h};
+const createElement = node => document.createElement(node.type);
+
+export {h, createElement};

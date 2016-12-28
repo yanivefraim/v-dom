@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "~3.5.0",
+    "jsdom-global": "^2.1.1",
     "wix-node-build": "latest"
   },
   "babel": {
@@ -36,7 +37,8 @@
   "eslintConfig": {
     "extends": "wix/esnext",
     "globals": {
-      "h": true
+      "h": true,
+      "document": true
     }
   }
 }
