@@ -38,9 +38,24 @@ describe('vDom', () => {
     const node = ('item');
 
     const domEl = createDOMElement(node);
-    console.log(domEl.textContent);
+
     expect(domEl.nodeName).to.equal('#text');
     expect(domEl.textContent).to.equal('item');
+  });
+
+  it('should create dom elements recursively', () => {
+    /** @jsx createElement */
+    const node = (
+      <div>
+        <ul>
+          <li>'item1'</li>
+        </ul>
+      </div>
+    );
+
+    const domEl = createDOMElement(node);
+    console.log(domEl);
+    expect(domEl.innerHTML).to.equal(`<ul><li>'item1'</li></ul>`);
   });
 });
 

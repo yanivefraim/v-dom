@@ -7,7 +7,14 @@ const createDOMElement = node => {
   if (!node.type) {
     return document.createTextNode(node);
   }
-  return document.createElement(node.type);
+  const domEl = document.createElement(node.type);
+
+  node
+    .children
+    .map(createDOMElement)
+    .forEach(el => domEl.appendChild(el));
+
+  return domEl;
 };
 
 export {createElement, createDOMElement};
