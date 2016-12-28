@@ -1,0 +1,2 @@
+export {h} from './vDom';
+
