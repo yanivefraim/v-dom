@@ -54,7 +54,6 @@ describe('vDom', () => {
     );
 
     const domEl = createDOMElement(node);
-    console.log(domEl);
     expect(domEl.innerHTML).to.equal(`<ul><li>'item1'</li></ul>`);
   });
 });
