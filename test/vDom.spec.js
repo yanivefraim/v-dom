@@ -32,5 +32,15 @@ describe('vDom', () => {
 
     expect(domEl.nodeName).to.equal('DIV');
   });
+
+  it('should create a textNode dom element', () => {
+    /** @jsx createElement */
+    const node = ('item');
+
+    const domEl = createDOMElement(node);
+    console.log(domEl.textContent);
+    expect(domEl.nodeName).to.equal('#text');
+    expect(domEl.textContent).to.equal('item');
+  });
 });
 
