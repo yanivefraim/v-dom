@@ -1,6 +1,6 @@
 import 'jsdom-global/register';
 import {expect} from 'chai';
-import {h, createElement} from '../src/vDom';/*eslint no-unused-vars: 0*/
+import {createElement, createDOMElement} from '../src/vDom';/*eslint no-unused-vars: 0*/
 
 describe('vDom', () => {
   let cleanup;
@@ -10,7 +10,7 @@ describe('vDom', () => {
   afterEach(() => cleanup());
 
   it('should represent jsx as javascript (vDom) object', () => {
-    /** @jsx h */
+    /** @jsx createElement */
     const a = (
       <ul class="list">
         <li>item 1</li>
@@ -25,10 +25,10 @@ describe('vDom', () => {
   });
 
   it('should create a div dom element', () => {
-    /** @jsx h */
+    /** @jsx createElement */
     const node = (<div/>);
 
-    const domEl = createElement(node);
+    const domEl = createDOMElement(node);
 
     expect(domEl.nodeName).to.equal('DIV');
   });
