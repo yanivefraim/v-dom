@@ -1,6 +1,6 @@
 import 'jsdom-global/register';
 import {expect} from 'chai';
-import {createElement, createDOMElement} from '../src/vDom';/*eslint no-unused-vars: 0*/
+import {createElement, createDOMElement, render} from '../src/vDom';/*eslint no-unused-vars: 0*/
 
 describe('vDom', () => {
   let cleanup;
@@ -56,5 +56,17 @@ describe('vDom', () => {
     const domEl = createDOMElement(node);
     expect(domEl.innerHTML).to.equal(`<ul><li>'item1'</li></ul>`);
   });
+
+  it('should render virtual dom on real dom', () => {
+    const root = document.createElement('div');
+    /** @jsx createElement */
+    const node = (<div>item 123</div>);
+
+    render(root, node);
+    
+    expect(root.getElementsByTagName('div').length).to.equal(1);
+    expect(root.getElementsByTagName('div')[0].textContent).to.equal('item 123');
+  });
+
 });
 

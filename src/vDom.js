@@ -17,4 +17,6 @@ const createDOMElement = node => {
   return domEl;
 };
 
-export {createElement, createDOMElement};
+const render = (wrapper, node) => wrapper.appendChild(createDOMElement(node));
+
+export {createElement, createDOMElement, render};
