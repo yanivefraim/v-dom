@@ -63,7 +63,7 @@ describe('vDom', () => {
     const node = (<div>item 123</div>);
 
     render(root, node);
-    
+
     expect(root.getElementsByTagName('div').length).to.equal(1);
     expect(root.getElementsByTagName('div')[0].textContent).to.equal('item 123');
   });
