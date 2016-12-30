@@ -1,2 +1,2 @@
-export {h} from './vDom';
+export {render} from './vDom';
 
